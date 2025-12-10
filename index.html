@@ -6,13 +6,13 @@
 
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="구매계약 체결 컴플라이언스 가이드라인과 교육 자료를 제공합니다.">
+  <meta name="description" content="회사 업무 수행과 관련한 주요 Compliance 가이드라인과 교육 자료를 제공합니다.">
 
-  <title>Purchasing Contract Compliance</title>
+  <title>Compliance Guideline</title>
 
   <!-- iOS icons & standalone -->
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <meta name="apple-mobile-web-app-title" content="Purchasing Contract Compliance">
+  <meta name="apple-mobile-web-app-title" content="Compliance Guideline">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <style>
@@ -62,7 +62,6 @@
       font-size: 0.9rem;
     }
 
-    /* 공통 카드 스타일 */
     .card {
       background: var(--card-bg);
       padding: 18px 18px 16px;
@@ -172,7 +171,6 @@
       }
     }
 
-    /* 서브 화면용 스타일 */
     .view-title {
       font-size: 1.25rem;
       font-weight: 600;
@@ -205,65 +203,50 @@
       background: #1d4ed8;
       border-color: #1d4ed8;
     }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px dashed #d1d5db;
-      color: #6b7280;
-      background: #f9fafb;
-    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <header>
-      <h1>Purchasing Contract Compliance</h1>
+      <h1>Compliance Guideline</h1>
       <p>
-        구매계약 체결 관련 컴플라이언스 가이드라인과 교육 자료를 한 곳에서 확인할 수 있습니다.
+        회사 업무 수행과 관련한 주요 Compliance 가이드라인과 교육 자료를 제공합니다.
       </p>
     </header>
 
-    <!-- 홈 화면: 두 개의 메인 메뉴 -->
     <div id="home-view">
       <div class="list">
-        <!-- 메뉴 1: 구매계약 체결 -->
+
         <div class="card">
           <div class="card-header">
             <span class="badge">GUIDELINE</span>
             <div class="card-title">구매계약 체결</div>
           </div>
           <div class="card-desc">
-            구매계약 체결과 관련된 컴플라이언스 Guideline 및 교육 동영상을 확인할 수 있습니다.
+            구매계약 체결과 관련된 Compliance 가이드라인 및 교육 영상을 확인할 수 있습니다.
           </div>
           <div class="btn-row">
-            <button class="btn" id="open-contract">
-              열기
-            </button>
+            <button class="btn" id="open-contract">열기</button>
           </div>
         </div>
 
-        <!-- 메뉴 2: TBD (향후 확장용) -->
         <div class="card">
           <div class="card-header">
             <span class="badge badge-muted">TBD</span>
             <div class="card-title">TBD</div>
           </div>
           <div class="card-desc">
-            향후 추가될 Compliance 주제를 위해 예약된 메뉴입니다.
+            향후 추가될 Compliance 가이드라인 항목을 위해 예약된 메뉴입니다.
           </div>
           <div class="btn-row">
-            <button class="btn btn-disabled" type="button">
-              준비 중
-            </button>
+            <button class="btn btn-disabled" type="button">준비 중</button>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- 서브 화면 1: 구매계약 체결 메뉴 -->
     <div id="contract-view" style="display:none;">
       <button class="back-btn" id="back-home">
         ← 목록으로 돌아가기
@@ -271,55 +254,44 @@
 
       <div class="view-title">구매계약 체결</div>
       <p class="view-subtitle">
-        아래 메뉴를 통해 구매계약 체결 Guideline 문서와 교육 동영상을 확인할 수 있습니다.
+        아래 메뉴를 통해 구매계약 체결 관련 Compliance 가이드라인 문서와 교육 영상을 확인할 수 있습니다.
       </p>
 
-      <!-- 메뉴 1-1: Guideline 문서뷰어 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">PDF</span>
-          <div class="card-title">구매계약 체결 Guideline (문서 보기)</div>
+          <div class="card-title">구매계약 체결 가이드라인 (문서 보기)</div>
         </div>
         <div class="card-desc">
-          구매계약 체결 절차, 필수 검토사항, 위험 요소 및 내부 통제 포인트 등을 정리한 Guideline 문서를
-          PDF Viewer로 확인할 수 있습니다.
+          구매계약 체결 절차, 필수 검토사항, 위험 요소 및 내부 통제 포인트 등을 정리한 가이드라인 문서를 PDF Viewer로 확인할 수 있습니다.
         </div>
         <div class="btn-row">
-          <!-- ⬇️ 여기 file= 뒤의 경로를 실제 PDF 파일명으로 변경해서 사용하시면 됩니다. -->
-          <a class="btn"
-             href="pdfjs/viewer.html?file=../Purchasing-Contract-Guideline.pdf#zoom=page-width">
+          <a class="btn" href="pdfjs/viewer.html?file=../Purchasing-Contract-Guideline.pdf#zoom=page-width">
             문서 열기
           </a>
         </div>
       </div>
 
-      <!-- 메뉴 1-2: 교육 동영상 링크 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">VIDEO</span>
-          <div class="card-title">구매계약 체결 교육 동영상</div>
+          <div class="card-title">구매계약 체결 교육 영상</div>
         </div>
         <div class="card-desc">
-          구매계약 체결 컴플라이언스 교육용 동영상을 재생합니다. 교육용으로 활용하실 수 있도록
-          별도의 설명과 함께 구성되어 있습니다.
+          구매계약 체결 Compliance 교육용 영상입니다. 실제 사례 기반 설명을 포함하고 있어 실무 이해에 도움이 됩니다.
         </div>
         <div class="btn-row">
-          <!--
-            ⬇️ 이 링크를 어제 말씀하셨던 실제 동영상 URL로 교체하시면 됩니다.
-            예: YouTube 링크, 사내 동영상 서버 URL 등
-          -->
-          <a class="btn"
-             id="contract-video-link"
+          <a class="btn" id="contract-video-link"
              href="https://example.com/purchasing-contract-video"
-             target="_blank"
-             rel="noopener">
-            동영상 보기
+             target="_blank" rel="noopener">
+            영상 보기
           </a>
         </div>
       </div>
+
     </div>
 
-    <footer>Purchasing Contract Compliance – Web App</footer>
+    <footer>Compliance Guideline – Web App</footer>
   </div>
 
   <script>
@@ -343,7 +315,6 @@
     openContractBtn.addEventListener('click', showContract);
     backHomeBtn.addEventListener('click', showHome);
 
-    // PWA service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js').catch(console.error);
     }

@@ -64,6 +64,7 @@
       display: inline-block;
       border: 0;
       cursor: pointer;
+      white-space: nowrap; /* ✅ 추가: 모바일에서 줄바꿈 방지 */
     }
 
     /* 🔹 Back button (same style, but slightly darker is okay; keep identical if you want) */
@@ -98,11 +99,11 @@
 
 <body>
   <div class="toolbar">
-    <!-- ✅ NEW: One-level up (Back) -->
-    <button type="button" class="nav-link" id="back-btn">← 이전</button>
+    <!-- ✅ One-level up (Back) -->
+    <button type="button" class="nav-link" id="back-btn">이전</button>
 
     <!-- 🔹 Link back to HOME (always root) -->
-    <a href="../index.html" class="home-link">← HOME</a>
+    <a href="../index.html" class="home-link">HOME</a>
 
     <button id="prev">◀</button>
     <span>
@@ -138,18 +139,15 @@
           const back = params.get("back");
 
           if (back) {
-            // Allow relative paths like "purchase.html" or "../purchase/index.html"
             window.location.href = back;
             return;
           }
 
-          // If user came from a previous page in-app, go back
           if (window.history.length > 1) {
             window.history.back();
             return;
           }
 
-          // Fallback
           window.location.href = "../index.html";
         } catch (e) {
           window.location.href = "../index.html";

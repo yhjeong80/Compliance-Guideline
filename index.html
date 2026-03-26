@@ -285,21 +285,21 @@
           </div>
         </div>
 
-        <!-- 메뉴 2: TBD (공사중 아이콘) -->
+        <!-- 메뉴 2: Joint R&D Guideline -->
         <div class="card home-card">
           <img src="icons/construction_icon_192.png"
-               alt="준비 중 아이콘"
+               alt="Joint R&D Guideline 아이콘"
                class="card-icon">
           <div class="home-card-main">
             <div class="card-header">
-              <span class="badge badge-muted">TBD</span>
-              <div class="card-title">TBD</div>
+              <span class="badge">GUIDELINE</span>
+              <div class="card-title">Joint R&D Guideline</div>
             </div>
             <div class="card-desc">
-              향후 추가될 Compliance 가이드라인 항목을 위해 예약된 메뉴입니다.
+              공동 연구개발 수행과 관련된 Compliance 가이드라인 문서를 확인할 수 있습니다.
             </div>
             <div class="btn-row">
-              <button class="btn btn-disabled" type="button">준비 중</button>
+              <button class="btn" id="open-joint-rnd">열기</button>
             </div>
           </div>
         </div>
@@ -365,39 +365,87 @@
 
     </div>
 
+    <!-- 서브 화면: Joint R&D Guideline -->
+    <div id="joint-rnd-view" style="display:none;">
+      <button class="back-btn" id="back-home-joint-rnd">
+        목록으로 돌아가기
+      </button>
+
+      <div class="view-title">Joint R&D Guideline</div>
+      <p class="view-subtitle">
+        아래 메뉴를 통해 공동 연구개발 관련 Compliance 가이드라인 문서를 확인할 수 있습니다.
+      </p>
+
+      <!-- PDF 가이드라인 카드 -->
+      <div class="card">
+        <div class="card-header">
+          <span class="badge">PDF</span>
+          <div class="card-title">Joint R&D Guideline (문서 보기)</div>
+        </div>
+        <div class="card-desc">
+          공동 연구개발 수행 시 검토해야 할 주요 Compliance 사항, 권리 귀속, 비밀유지, 계약상 유의사항 등을 정리한
+          가이드라인 문서를 PDF Viewer로 확인할 수 있습니다.
+        </div>
+        <div class="btn-row">
+          <a class="btn"
+             href="pdfjs/viewer.html?file=../Joint-RnD-Guideline.pdf&back=../index.html%23joint-rnd#zoom=page-width">
+            문서 열기
+          </a>
+        </div>
+      </div>
+
+    </div>
+
     <footer>Compliance Guideline – Web App</footer>
   </div>
 
   <script>
     const homeView = document.getElementById('home-view');
     const contractView = document.getElementById('contract-view');
+    const jointRndView = document.getElementById('joint-rnd-view');
     const openContractBtn = document.getElementById('open-contract');
+    const openJointRndBtn = document.getElementById('open-joint-rnd');
     const backHomeBtn = document.getElementById('back-home');
+    const backHomeJointRndBtn = document.getElementById('back-home-joint-rnd');
 
     const playVideoBtn = document.getElementById('play-contract-video');
     const contractVideoContainer = document.getElementById('contract-video-container');
 
     function showContract() {
       homeView.style.display = 'none';
+      jointRndView.style.display = 'none';
       contractView.style.display = 'block';
       window.location.hash = '#contract';
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
+    function showJointRnd() {
+      homeView.style.display = 'none';
+      contractView.style.display = 'none';
+      jointRndView.style.display = 'block';
+      window.location.hash = '#joint-rnd';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
     function showHome() {
       contractView.style.display = 'none';
+      jointRndView.style.display = 'none';
       homeView.style.display = 'block';
       if (window.location.hash) history.replaceState(null, '', window.location.pathname + window.location.search);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     openContractBtn.addEventListener('click', showContract);
+    openJointRndBtn.addEventListener('click', showJointRnd);
     backHomeBtn.addEventListener('click', showHome);
+    backHomeJointRndBtn.addEventListener('click', showHome);
 
     function syncViewFromHash() {
       const hash = (window.location.hash || '').toLowerCase();
       if (hash === '#contract') {
         showContract();
+      } else if (hash === '#joint-rnd') {
+        showJointRnd();
       } else {
         showHome();
       }
